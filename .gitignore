@@ -125,3 +125,6 @@ tmp/
 
 # Personal stuff
 .notes/
+
+# Lock dependecies
+package-lock.json

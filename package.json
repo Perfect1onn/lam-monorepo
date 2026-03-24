@@ -1,32 +1,32 @@
 {
-  "name": "lam-wallet-root",
-  "version": "1.0.0",
-  "private": true,
-  "description": "lam is a multi-chain HD crypto wallet",
-  "scripts": {
-    "test": "npm run test -workspaces",
-    "build": "npm run build -workspaces --if-present",
-    "clean": "npm run clean -workspaces --if-present",
-    "coverage": "npm run coverage -workspaces --if-present"
-  },
-  "devDependencies": {
-    "@vitest/coverage-v8": "^4.1.0",
-    "@types/node": "^20",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.2.0",
-    "tsx": "^4.19.3",
-    "rimraf": "^3.0.2",
-    "vitest": "^4.0.0"
-  },
-  "workspaces": [
-    "packages/*",
-    "packages/networks/*",
-    "apps/*"
-  ],
-  "author": "Samir Hatamov <https:>",
-  "license": "ISC",
-  "engines": {
-    "node": ">=20",
-    "npm": ">=9"
-  }
+	"name": "lam-wallet-root",
+	"version": "1.0.0",
+	"private": true,
+	"description": "lam is a multi-chain HD crypto wallet",
+	"scripts": {
+		"test": "npm run test -workspaces",
+		"build": "npm run build -workspaces --if-present",
+		"clean": "npm run clean -workspaces --if-present",
+		"coverage": "npm run coverage -workspaces --if-present"
+	},
+	"devDependencies": {
+		"@vitest/coverage-v8": "^4.1.0",
+		"@types/node": "^20",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.2.0",
+		"tsx": "^4.19.3",
+		"rimraf": "^3.0.2",
+		"vitest": "^4.0.0"
+	},
+	"workspaces": [
+		"packages/*",
+		"packages/networks/*",
+		"apps/*"
+	],
+	"author": "Samir Hatamov <samirhatamov45@gmail.com>",
+	"license": "ISC",
+	"engines": {
+		"node": ">=20",
+		"npm": ">=9"
+	}
 }

@@ -1,5 +1,5 @@
 {
-  "name": "@lam/wallet-core",
+  "name": "@lam/accounts",
   "version": "1.0.0",
   "private": true,
   "main": "dist/index.js",
@@ -14,16 +14,6 @@
     "coverage": "vitest run --coverage",
     "build": "npm run clean && tsc -p ./tsconfig.json",
     "clean": "rimraf dist *.tsbuildinfo"
-  },
-  "dependencies": {
-  	"@lam/accounts": "^1.0.0",
-   	"@lam/network": "^1.0.0",
-    	"@lam/hd": "^1.0.0",
-     	"@lam/seed": "^1.0.0",
-      "@lam/crypto": "^1.0.0",
-      "@lam/storage": "^1.0.0",
-      "@lam/cold-vault": "^1.0.0",
-      "@lam/hot-vault": "^1.0.0"
   },
   "author": "Samir Hatamov <samirhatamov45@gmail.com>",
   "license": "ISC",

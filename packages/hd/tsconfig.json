@@ -6,14 +6,7 @@
     "outDir": "./dist",
   },
   "references": [
-    { "path": "../accounts" },
-    { "path": "../network" },
-    { "path": "../hd" },
-    { "path": "../seed" },
-    { "path": "../crypto" },
-    { "path": "../storage" },
-    { "path": "../cold-vault" },
-    { "path": "../hot-vault" }
+    { "path": "../keypair" }
   ],
   "include": ["src"],
   "exclude": ["node_modules", "test", "dist", "**/*spec.ts"],
