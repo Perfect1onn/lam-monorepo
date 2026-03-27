@@ -7,15 +7,19 @@
 		"test": "npm run test -workspaces",
 		"build": "npm run build -workspaces --if-present",
 		"clean": "npm run clean -workspaces --if-present",
-		"coverage": "npm run coverage -workspaces --if-present"
+		"coverage": "npm run coverage -workspaces --if-present",
+		"format": "prettier --write .",
+		"format-check": "prettier . --check"
 	},
 	"devDependencies": {
-		"@vitest/coverage-v8": "^4.1.0",
 		"@types/node": "^20",
-		"ts-node": "^10.9.2",
-		"typescript": "^5.2.0",
-		"tsx": "^4.19.3",
+		"@vitest/coverage-v8": "^4.1.0",
+		"prettier": "^3.8.1",
 		"rimraf": "^3.0.2",
+		"ts-node": "^10.9.2",
+		"tsx": "^4.19.3",
+		"typescript": "^5.2.0",
+		"vite": "^8.0.3",
 		"vitest": "^4.0.0"
 	},
 	"workspaces": [
@@ -28,5 +32,8 @@
 	"engines": {
 		"node": ">=20",
 		"npm": ">=9"
+	},
+	"dependencies": {
+		"@lam/utils": "^1.0.0"
 	}
 }

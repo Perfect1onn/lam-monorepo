@@ -1,3 +1,3 @@
-import { type StorageProvider } from "./StorageProvider";
+import { type StorageProvider } from './StorageProvider';
 
 export { type StorageProvider };

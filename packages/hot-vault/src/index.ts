@@ -1,3 +1,3 @@
-import HotSeedVault from "./HotSeedVault";
+import HotSeedVault from './HotSeedVault';
 
 export { HotSeedVault };

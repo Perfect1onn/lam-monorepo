@@ -1,24 +1,31 @@
 {
-  "name": "@lam/crypto",
-  "version": "1.0.0",
-  "private": true,
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "/dist"
-  ],
-  "scripts": {
-    "start:ts": "tsx src/index.ts",
-    "start:js": "node dist/index.js",
-    "test": "vitest",
-    "coverage": "vitest run --coverage",
-    "build": "npm run clean && tsc -p ./tsconfig.json",
-    "clean": "rimraf dist *.tsbuildinfo"
-  },
-  "author": "Samir Hatamov <samirhatamov45@gmail.com>",
-  "license": "ISC",
-  "engines": {
-    "node": ">=20",
-    "npm": ">=9"
-  }
+	"name": "@lam/crypto",
+	"version": "1.0.0",
+	"private": true,
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"files": [
+		"/dist"
+	],
+	"scripts": {
+		"start:ts": "tsx src/index.ts",
+		"start:js": "node --experimental-wasm-modules dist/index.js",
+		"test": "vitest",
+		"coverage": "vitest run --coverage",
+		"build": "npm run clean && tsc -p ./tsconfig.json",
+		"clean": "rimraf dist *.tsbuildinfo"
+	},
+	"dependencies": {
+		"@noble/hashes": "^2.0.1"
+	},
+	"author": "Samir Hatamov <samirhatamov45@gmail.com>",
+	"license": "ISC",
+	"engines": {
+		"node": ">=20",
+		"npm": ">=9"
+	},
+	"devDependencies": {
+		"jsdom": "^29.0.1",
+		"@lam/utils": "^1.0.0"
+	}
 }

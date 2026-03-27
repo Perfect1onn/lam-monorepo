@@ -1,6 +1,3 @@
-import { expect, test, describe } from 'vitest'
+import { expect, test, describe } from 'vitest';
 
-
-describe("Wallet core", () => {
-
-})
+describe('Wallet core', () => {});

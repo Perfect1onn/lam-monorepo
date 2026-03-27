@@ -1,5 +1,5 @@
-import { HDStrategy } from "@lam/hd";
-import { KeyPairStrategy } from "@lam/keypair";
+import { HDStrategy } from '@lam/hd';
+import { KeyPairStrategy } from '@lam/keypair';
 
 interface NetworkConfigOptions {
 	networkId: string;
@@ -7,7 +7,7 @@ interface NetworkConfigOptions {
 	hdStrategy: HDStrategy;
 	derivationPathTemplate: string;
 	addressFormat: string;
-};
+}
 
 class NetworkConfig {
 	public networkId: string;

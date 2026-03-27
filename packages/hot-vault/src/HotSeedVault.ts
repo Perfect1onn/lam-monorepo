@@ -1,4 +1,4 @@
-import { CryptoProvider } from "@lam/crypto";
+import { CryptoProvider } from '@lam/crypto';
 
 class HotSeedVault {
 	private encryptedSeed: string;
@@ -12,15 +12,15 @@ class HotSeedVault {
 	}
 
 	public async unlock(password: string) {
-		throw new Error("Not implemented");
+		throw new Error('Not implemented');
 	}
 
 	public async getSeed() {
-		throw new Error("Not implemented");
+		throw new Error('Not implemented');
 	}
 
 	public async lock() {
-		throw new Error("Not implemented");
+		throw new Error('Not implemented');
 	}
 }
 

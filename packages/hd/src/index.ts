@@ -1,4 +1,4 @@
-import HDStrategy from "./HDStrategy";
-import HDKeyManager from "./HDKeyManager";
+import HDStrategy from './HDStrategy';
+import HDKeyManager from './HDKeyManager';
 
 export { HDStrategy, HDKeyManager };

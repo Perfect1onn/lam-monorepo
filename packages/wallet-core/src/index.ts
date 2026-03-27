@@ -1,3 +1,3 @@
-import WalletCore from "./WalletCore";
+import WalletCore from './WalletCore';
 
 export { WalletCore };

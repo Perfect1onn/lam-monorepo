@@ -1,4 +1,4 @@
-import Network from "./Network";
+import Network from './Network';
 
 class NetworkPool {
 	private networks: Map<string, Network>;
@@ -18,7 +18,7 @@ class NetworkPool {
 	public registerNetwork(network: Network) {
 		const networkId = network.getNetworkId();
 
-		if (this.getNetworkById(networkId)) throw new Error("Network already exists");
+		if (this.getNetworkById(networkId)) throw new Error('Network already exists');
 
 		this.networks.set(networkId, network);
 	}

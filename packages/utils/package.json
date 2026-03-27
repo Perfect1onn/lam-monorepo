@@ -1,5 +1,5 @@
 {
-	"name": "@lam/seed",
+	"name": "@lam/utils",
 	"version": "1.0.0",
 	"private": true,
 	"main": "dist/index.js",
@@ -14,9 +14,6 @@
 		"coverage": "vitest run --coverage",
 		"build": "npm run clean && tsc -p ./tsconfig.json",
 		"clean": "rimraf dist *.tsbuildinfo"
-	},
-	"dependencies": {
-		"@lam/crypto": "^1.0.0"
 	},
 	"author": "Samir Hatamov <samirhatamov45@gmail.com>",
 	"license": "ISC",

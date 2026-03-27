@@ -1,8 +1,8 @@
-import type { Account } from "@lam/accounts";
-import { NetworkConfig } from "./NetworkConfig";
-import { Transaction } from "@lam/transaction";
-import { HDStrategy } from "@lam/hd";
-import { KeyPairStrategy } from "@lam/keypair";
+import type { Account } from '@lam/accounts';
+import { NetworkConfig } from './NetworkConfig';
+import { Transaction } from '@lam/transaction';
+import { HDStrategy } from '@lam/hd';
+import { KeyPairStrategy } from '@lam/keypair';
 
 class Network {
 	private accounts: Map<string, Account>;
@@ -34,11 +34,11 @@ class Network {
 	}
 
 	public createAccount(publicKey: string, derivePath: string): Account {
-		throw new Error("Not implemented");
+		throw new Error('Not implemented');
 	}
 
 	public signTransaction(transaction: Transaction, privateKey: string) {
-		throw new Error("Not implemented");
+		throw new Error('Not implemented');
 	}
 }
 

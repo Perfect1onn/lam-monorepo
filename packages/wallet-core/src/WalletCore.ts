@@ -1,11 +1,11 @@
-import type { Account } from "@lam/accounts";
-import { type Network, NetworkPool } from "@lam/network";
-import { HDKeyManager } from "@lam/hd";
-import { type SeedGenerationStrategy, BIPSeedGenerationStrategy } from "@lam/seed";
-import { type EnviromentDependencies, ColdSeedVault } from "@lam/cold-vault";
-import type { CryptoProvider } from "@lam/crypto";
-import type { StorageProvider } from "@lam/storage";
-import { HotSeedVault } from "@lam/hot-vault";
+import type { Account } from '@lam/accounts';
+import { type Network, NetworkPool } from '@lam/network';
+import { HDKeyManager } from '@lam/hd';
+import { type SeedGenerationStrategy, BIPSeedGenerationStrategy } from '@lam/seed';
+import { type EnviromentDependencies, ColdSeedVault } from '@lam/cold-vault';
+import type { CryptoProvider } from '@lam/crypto';
+import type { StorageProvider } from '@lam/storage';
+import { HotSeedVault } from '@lam/hot-vault';
 
 class WalletCore {
 	private seedGenerationStrategy: SeedGenerationStrategy;
@@ -17,7 +17,7 @@ class WalletCore {
 	private storageProvider: StorageProvider;
 
 	constructor(dependencies: EnviromentDependencies) {
-		this.seedGenerationStrategy = new BIPSeedGenerationStrategy();
+		this.seedGenerationStrategy = new BIPSeedGenerationStrategy(dependencies.cryptoProvider);
 		this.coldSeedVault = new ColdSeedVault(dependencies);
 		this.networkPool = new NetworkPool();
 		this.hdKeyManager = new HDKeyManager();
@@ -103,11 +103,11 @@ class WalletCore {
 
 			const { publicKey } = this.hdKeyManager.deriveKeyPair(
 				seed,
-				"44/0/0/0/1",
+				'44/0/0/0/1',
 				network.getHDStrategy(),
 				network.getKeyPairStrategy()
 			);
-			const account: Account = network.createAccount(publicKey, "44/0/0/0/1");
+			const account: Account = network.createAccount(publicKey, '44/0/0/0/1');
 
 			this.hotSeedVault.lock();
 
@@ -120,7 +120,7 @@ class WalletCore {
 	public getAccounts(networkId: string): Account[] {
 		const network = this.networkPool.getNetworkById(networkId);
 
-		if (!network) throw new Error("");
+		if (!network) throw new Error('');
 
 		return network.getAccounts();
 	}

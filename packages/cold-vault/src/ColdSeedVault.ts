@@ -1,5 +1,5 @@
-import type { CryptoProvider } from "@lam/crypto";
-import type { StorageProvider } from "@lam/storage";
+import type { CryptoProvider } from '@lam/crypto';
+import type { StorageProvider } from '@lam/storage';
 
 interface EnviromentDependencies {
 	cryptoProvider: CryptoProvider;
@@ -16,11 +16,11 @@ class ColdSeedVault {
 	}
 
 	public async loadSeed(password: string): Promise<string> {
-		throw new Error("Not implemented");
+		throw new Error('Not implemented');
 	}
 
 	public async saveSeed(seed: any, password: string) {
-		throw new Error("Not implemented");
+		throw new Error('Not implemented');
 	}
 }
 

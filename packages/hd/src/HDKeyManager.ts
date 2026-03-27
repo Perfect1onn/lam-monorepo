@@ -1,5 +1,5 @@
-import HDStrategy from "./HDStrategy";
-import { KeyPairStrategy } from "@lam/keypair";
+import HDStrategy from './HDStrategy';
+import { KeyPairStrategy } from '@lam/keypair';
 
 class HDKeyManager {
 	public derivePrivateKey(seed: any, derivePath: string, hdStrategy: HDStrategy) {
