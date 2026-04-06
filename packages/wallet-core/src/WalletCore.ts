@@ -2,9 +2,9 @@ import type { Account } from '@lam/accounts';
 import { type Network, NetworkPool } from '@lam/network';
 import { HDKeyManager } from '@lam/hd';
 import { type SeedGenerationStrategy, BIPSeedGenerationStrategy } from '@lam/seed';
-import { type EnviromentDependencies, ColdSeedVault } from '@lam/cold-vault';
+import { type EnvironmentDependencies, ColdSeedVault } from '@lam/cold-vault';
 import type { CryptoProvider } from '@lam/crypto';
-import type { StorageProvider } from '@lam/storage';
+import { Seed, type StorageProvider} from '@lam/storage';
 import { HotSeedVault } from '@lam/hot-vault';
 
 class WalletCore {
@@ -16,14 +16,18 @@ class WalletCore {
 	private cryptoProvider: CryptoProvider;
 	private storageProvider: StorageProvider;
 
-	constructor(dependencies: EnviromentDependencies) {
+	constructor(dependencies: EnvironmentDependencies) {
+		this.storageProvider = dependencies.storageProvider;
+		this.cryptoProvider = dependencies.cryptoProvider;
+
+		const seedsStorage = this.storageProvider.getStorage<Seed>('seeds');
+
+		this.coldSeedVault = new ColdSeedVault({seedsStorage, cryptoProvider: this.cryptoProvider});
+		this.hotSeedVault = null;
+
 		this.seedGenerationStrategy = new BIPSeedGenerationStrategy(dependencies.cryptoProvider);
-		this.coldSeedVault = new ColdSeedVault(dependencies);
 		this.networkPool = new NetworkPool();
 		this.hdKeyManager = new HDKeyManager();
-		this.cryptoProvider = dependencies.cryptoProvider;
-		this.storageProvider = dependencies.storageProvider;
-		this.hotSeedVault = null;
 	}
 
 	public async initializeWallet(password: string): Promise<string[]> {

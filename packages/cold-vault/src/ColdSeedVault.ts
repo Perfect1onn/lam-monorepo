@@ -1,18 +1,23 @@
 import type { CryptoProvider } from '@lam/crypto';
-import type { StorageProvider } from '@lam/storage';
+import {Seed, Storage, StorageProvider} from '@lam/storage';
 
-interface EnviromentDependencies {
+interface EnvironmentDependencies {
 	cryptoProvider: CryptoProvider;
 	storageProvider: StorageProvider;
 }
 
+interface ColdSeedVaultOptions {
+	cryptoProvider: CryptoProvider;
+	seedsStorage: Storage<Seed>;
+}
+
 class ColdSeedVault {
 	private cryptoProvider: CryptoProvider;
-	private storageProvider: StorageProvider;
+	private seedsStorage: Storage<Seed>;
 
-	constructor(dependencies: EnviromentDependencies) {
+	constructor(dependencies: ColdSeedVaultOptions) {
 		this.cryptoProvider = dependencies.cryptoProvider;
-		this.storageProvider = dependencies.storageProvider;
+		this.seedsStorage = dependencies.seedsStorage;
 	}
 
 	public async loadSeed(password: string): Promise<string> {
@@ -24,4 +29,4 @@ class ColdSeedVault {
 	}
 }
 
-export { type EnviromentDependencies, ColdSeedVault };
+export { type EnvironmentDependencies, ColdSeedVault };
