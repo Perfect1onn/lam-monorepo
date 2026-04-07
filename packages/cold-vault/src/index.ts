@@ -1,3 +1,3 @@
-import { type EnvironmentDependencies, ColdSeedVault } from './ColdSeedVault';
+import { type EnvironmentDependencies, type ColdSeedVaultOptions, ColdSeedVault } from './ColdSeedVault';
 
-export { type EnvironmentDependencies, ColdSeedVault };
+export { type EnvironmentDependencies, type ColdSeedVaultOptions, ColdSeedVault };

@@ -17,6 +17,10 @@ class Network {
 		return this.config.networkId;
 	}
 
+	public getNetworkName() {
+		return this.config.name;
+	}
+
 	public getAccounts() {
 		return [...this.accounts.values()];
 	}
@@ -38,6 +42,10 @@ class Network {
 	}
 
 	public signTransaction(transaction: Transaction, privateKey: string) {
+		throw new Error('Not implemented');
+	}
+
+	public getDerivationPath(): string {
 		throw new Error('Not implemented');
 	}
 }

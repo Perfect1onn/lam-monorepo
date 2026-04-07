@@ -1,26 +1,48 @@
-import { CryptoProvider } from '@lam/crypto';
+import { CryptoProvider, Decrypted, Encrypted } from '@lam/crypto';
+import { Seed } from '@lam/storage';
+import { stringToBytes } from '@lam/utils';
 
 class HotSeedVault {
-	private encryptedSeed: string;
-	private decryptedSeed: any;
+	private encryptedSeed: Encrypted;
+	private decryptedSeed: Decrypted | null;
 	private cryptoProvider: CryptoProvider;
 
-	constructor(encryptedSeed: string, cryptoProvider: CryptoProvider) {
-		this.encryptedSeed = encryptedSeed;
+	constructor(encryptedSeed: Seed, cryptoProvider: CryptoProvider) {
+		this.encryptedSeed = {
+			salt: encryptedSeed.salt,
+			nonce: encryptedSeed.nonce,
+			ciphertext: encryptedSeed.seed,
+		};
 		this.decryptedSeed = null;
 		this.cryptoProvider = cryptoProvider;
 	}
 
 	public async unlock(password: string) {
-		throw new Error('Not implemented');
+		const passwordBytes = stringToBytes(password);
+
+		try {
+			this.decryptedSeed = await this.cryptoProvider.decrypt(this.encryptedSeed, passwordBytes);
+		} catch (error) {
+			throw error;
+		}
 	}
 
-	public async getSeed() {
-		throw new Error('Not implemented');
+	public getSeed() {
+		const decryptedSeed = this.decryptedSeed;
+
+		if (!decryptedSeed) throw new Error('HotSeedVault does not unlocked');
+
+		return decryptedSeed.data;
 	}
 
-	public async lock() {
-		throw new Error('Not implemented');
+	public lock() {
+		const decryptedSeed = this.decryptedSeed;
+
+		if (!decryptedSeed) return;
+
+		decryptedSeed.data.fill(0);
+
+		this.decryptedSeed = null;
 	}
 }
 

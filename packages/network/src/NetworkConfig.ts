@@ -3,6 +3,7 @@ import { KeyPairStrategy } from '@lam/keypair';
 
 interface NetworkConfigOptions {
 	networkId: string;
+	name: string;
 	keyPairStrategy: KeyPairStrategy;
 	hdStrategy: HDStrategy;
 	derivationPathTemplate: string;
@@ -11,6 +12,7 @@ interface NetworkConfigOptions {
 
 class NetworkConfig {
 	public networkId: string;
+	public name: string;
 	public keyPairStrategy: KeyPairStrategy;
 	public hdStrategy: HDStrategy;
 	public derivationPathTemplate: string;
@@ -18,6 +20,7 @@ class NetworkConfig {
 
 	constructor(options: NetworkConfigOptions) {
 		this.networkId = options.networkId;
+		this.name = options.name;
 		this.keyPairStrategy = options.keyPairStrategy;
 		this.hdStrategy = options.hdStrategy;
 		this.derivationPathTemplate = options.derivationPathTemplate;

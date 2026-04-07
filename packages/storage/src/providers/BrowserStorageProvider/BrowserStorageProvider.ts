@@ -68,7 +68,7 @@ class BrowserStorageProvider implements StorageProvider {
 	public getStorage<T extends Models>(storageName: StorageNames): Storage<T> {
 		const db = this.db;
 
-		if(!db) throw new Error("Not connected to DB")
+		if (!db) throw new Error('Not connected to DB');
 
 		const storage = this.storages.get(storageName);
 

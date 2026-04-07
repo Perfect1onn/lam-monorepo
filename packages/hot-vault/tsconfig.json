@@ -5,7 +5,13 @@
 		"rootDir": "src",
 		"outDir": "./dist"
 	},
-	"references": [{ "path": "../crypto" }],
+	"references": [
+		{ "path": "../crypto" },
+		{ "path": "../storage" },
+		{
+			"path": "../utils"
+		}
+	],
 	"include": ["src"],
 	"exclude": ["node_modules", "test", "dist", "**/*spec.ts"]
 }

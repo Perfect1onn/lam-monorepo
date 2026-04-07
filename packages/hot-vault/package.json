@@ -16,7 +16,13 @@
 		"clean": "rimraf dist *.tsbuildinfo"
 	},
 	"dependencies": {
-		"@lam/crypto": "^1.0.0"
+		"@lam/crypto": "^1.0.0",
+		"@lam/storage": "^1.0.0",
+		"@lam/utils": "^1.0.0"
+	},
+	"devDependencies": {
+		"jsdom": "^29.0.1",
+		"vitest-indexeddb": "^0.0.2"
 	},
 	"author": "Samir Hatamov <samirhatamov45@gmail.com>",
 	"license": "ISC",
